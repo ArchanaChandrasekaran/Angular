@@ -1,0 +1,15 @@
+.box{
+    width:100px;
+    height:100px;
+    background-color: brown;
+}
+.yesbox{
+    width:100px;
+    height:100px;
+    background-color: blue; 
+}
+.nobox{
+    width:100px;
+    height:100px;
+    background-color: green; 
+}

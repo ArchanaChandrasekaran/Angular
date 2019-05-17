@@ -1,0 +1,79 @@
+Friends: {{friends}}
+<ol>
+  <li>{{friends[0]}}</li>
+  <li>{{friends[1]}}</li>
+  <li>{{friends[2]}}</li>
+  <li>{{friends[3]}}</li>
+  <li>{{friends[4]}}</li>
+  <li>{{friends[5]}}</li>
+</ol>
+
+<br/>
+<ol>
+    <li *ngFor="let f of friends; let counter=index">{{f}}. Counter number {{counter}} 
+<button (click)="displayText(counter)">Click {{f}}</button>
+
+    </li>
+    
+  </ol>
+
+  <br/>
+  <div>
+    Demo of *ngFor directive with 
+     <table>
+      <thead>
+        <tr>
+          <th>S.no</th>
+          <th>city</th>
+          <th>STD</th>
+        </tr>
+      </thead>
+        <tbody>
+        <tr *ngFor="let l of locations">
+          <td> {{ l.id }}</td>
+          <td> {{ l.city }}</td>
+          <td> {{ l.code }}</td>
+         </tr></tbody>
+      
+    </table>
+     </div>
+     <hr>
+     <div>
+       Demo of *ngIf directive:
+       <button (click)="toggleCheck()">Toggle check</button>
+       <div class="box" *ngIf="check"></div>
+     </div>
+     <div>
+        Demo of *ngIf directive with else criteria:
+        <button (click)="toggleelseCheck()">Toggle else check</button>
+        <div class="yesbox" *ngIf="checkelse; else elseTemplate">
+I am here!
+<button>T</button>
+
+        </div>
+        <ng-template #elseTemplate>
+<div class="nobox">Hip hip</div>
+        </ng-template>
+      </div>
+      <hr>
+      <div>
+        Demo of *ngSwitchCase Directive
+        <div [ngSwitch]="city">
+          <span *ngSwitchCase="'044'">Chennai</span>
+          <span *ngSwitchCase="'022'">Mumbai</span>
+          <span *ngSwitchCase="'033'">Kolkata</span>
+          <span *ngSwitchCase="'080'">Bengaluru</span>
+          <span *ngSwitchDefault>code/City not available</span>
+        </div>
+        <hr>
+        <div>
+          Demo of pipes (inbuilt):
+          <br>
+          Savings: {{ money | currency:'Eur'}}
+          <br>
+          Chennai : {{ name | uppercase}}
+          <br>
+          Birthday: {{ birthday | date:'fullDate'}} <!--Shortdate-->
+        </div>
+
+      </div>

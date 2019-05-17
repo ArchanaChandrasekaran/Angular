@@ -1,10 +1,17 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
+  selector: 'cts-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'ang001';
+  title = 'angulardemo';
+  type = 'demopracti';
+
+  displaymessage=function()
+  {
+    //alert("angular practise started");
+    return this.type;
+  }
 }

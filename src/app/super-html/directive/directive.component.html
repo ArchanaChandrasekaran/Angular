@@ -1,0 +1,52 @@
+Friends: {{friends}}
+<ol>
+  <li>{{friends[0]}}</li>
+  <li>{{friends[1]}}</li>
+  <li>{{friends[2]}}</li>
+  <li>{{friends[3]}}</li>
+  <li>{{friends[4]}}</li>
+  <li>{{friends[5]}}</li>
+</ol>
+
+<br/>
+<ol>
+    <li *ngFor="let f of friends; let counter=index">{{f}}. Counter number {{counter}} </li>
+    
+  </ol>
+
+  <br/>
+  <hr>
+  <div>
+    Demo of *ngIf directive
+    <button (click)="togglecheck()">Toggle check</button>
+    <div class="box" *ngIf="check">
+
+    </div>
+    <div>
+        Demo of *ngIf directive withe else criteria
+        <button (click)="toggleelsecheck()">Toggle check</button>
+        <div class="yesbox" *ngIf="checkelse; else elseTemplate">
+    I am here!
+    <button>T</button>
+        </div>
+
+    <ng-template #elseTemplate>
+      <div class="nobox">
+          Woww
+      </div>
+    </ng-template>
+  </div>
+  <hr>
+  
+
+  <div>
+    Demo of Pipes (inbuilt):
+    <br/>
+    Savings : {{money | currency:'INR'}}
+    <br/>
+    Chennai : {{name | uppercase }}
+    <br/>
+    Birthday : {{birthday |date:'full
+    Time' }}
+  </div>
+  
