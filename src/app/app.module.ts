@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {Router, RouterModule} from '@angular/Router';
+import { Router, RouterModule } from '@angular/Router';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,7 +22,15 @@ import { ConsumeparentComponent } from './consume/consumeparent/consumeparent.co
 import { Consumechild1Component } from './consume/consumechild1/consumechild1.component';
 import { Consumechild2Component } from './consume/consumechild2/consumechild2.component';
 import { ChildComponent } from './consume/child/child.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { TemplateformComponent } from './Forms/templateform/templateform.component';
+import { ReactiveformComponent } from './Forms/reactiveform/reactiveform.component';
+import { AnimationComponent } from './animate/animation/animation.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RestapiComponent } from './services/restapi/restapi.component';
+import { RemoteComponent } from './restapi/remote/remote.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -43,79 +52,108 @@ import { FormsModule } from '@angular/forms';
     ConsumeparentComponent,
     Consumechild1Component,
     Consumechild2Component,
-    ChildComponent
+    ChildComponent,
+
+
+
+    TemplateformComponent,
+    ReactiveformComponent,
+    AnimationComponent,
+    RestapiComponent,
+    RemoteComponent
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+
     RouterModule.forRoot([
       {
-        path:'',
-        redirectTo:'family',
-        pathMatch:'full'
+        path: '',
+        redirectTo: 'family',
+        pathMatch: 'full'
       },
       {
-        path:'family',
-        component:FamilyComponent,
-        children:[
+        path: 'family',
+        component: FamilyComponent,
+        children: [
           {
-            path:'',
-            redirectTo:'father',
-            pathMatch:'full'
+            path: '',
+            redirectTo: 'father',
+            pathMatch: 'full'
           },
           {
-          path:'father',
-          component:FatherComponent
-        },
-        {
-          path: 'mother',
-          component:MotherComponent
-        },
-        {
-          path:'daughter',
-          component:DaughterComponent
-        },
-        {
-          path:'son',
-          component:SonComponent      
-        }
-      ]
-      },
-      {
-        path:'review',
-        component:ReviewComponent
-      },
-      {
-        path:'directive',
-        component:DirectiveComponent
-      },
-      {
-        path:'pipe',
-        component:PipeComponent
-      },
-      {
-        path:'consume',
-        component:ConsumeparentComponent,
-        children:[
+            path: 'father',
+            component: FatherComponent
+          },
           {
-            path:'child1',
-            component:Consumechild1Component
+            path: 'mother',
+            component: MotherComponent
+          },
+          {
+            path: 'daughter',
+            component: DaughterComponent
+          },
+          {
+            path: 'son',
+            component: SonComponent
+          }
+        ]
+      },
+      {
+        path: 'review',
+        component: ReviewComponent
+      },
+      {
+        path: 'directive',
+        component: DirectiveComponent
+      },
+      {
+        path: 'pipe',
+        component: PipeComponent
+      },
+      {
+        path: 'consume',
+        component: ConsumeparentComponent,
+        children: [
+          {
+            path: 'child1',
+            component: Consumechild1Component
 
           },
           {
-            path:'child2',
-            component:Consumechild2Component
+            path: 'child2',
+            component: Consumechild2Component
 
           }
         ]
       },
       {
-        path:'**',
-        component:BadrouteComponent
+        path: 'template',
+        component: TemplateformComponent
+      },
+      {
+        path: 'reactive',
+        component: ReactiveformComponent
+      },
+      {
+        path: 'animate',
+        component: AnimationComponent
+      },
+      {
+        path: 'remote',
+        component: RemoteComponent
+      },
+      {
+        path: '**',
+        component: BadrouteComponent
       }
     ]),
-    
+
   ],
   providers: [],
   bootstrap: [AppComponent]
